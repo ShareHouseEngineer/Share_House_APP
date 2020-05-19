@@ -1,37 +1,41 @@
-<h2>Sign up</h2>
-
+<div class="container-fluid bg-secondary py-4">
+   <div class="row justify-content-center">
+     <div class="col-6">
+       <div class="cover-text text-center pb-5">
+         <h1 class="text-light">新規登録</h1>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-<div class="container">
+</div>
+</div>
+</div>
+
   <div class="row form-group py-2">
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+    <%= f.label :name, "name:", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"col-5 form-control", placeholder:"お名前を入力ください" %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row form-group py-2">
+    <%= f.label :email, "e-mail:", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-5 form-control", placeholder:"メールアドレスを入力ください" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="row form-group py-2">
+    <%= f.label :password, "password:", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
+    <%# if @minimum_password_length %>
+    <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+    <%# end %>
+    <%= f.password_field :password, autocomplete: "new-password", class:"col-5 form-control", placeholder:"パスワードを入力ください" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="row form-group py-2">
+    <%= f.label :password_confirmation, "re password", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-5 form-control", placeholder:"確認のため、再度パスワードを入力ください" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="text-light">
+    <%= f.submit "confirm", class:"btn btn-primary offset-4" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
 </div>
