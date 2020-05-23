@@ -1,0 +1,15 @@
+<h2>投稿画面</h2>
+
+<%#= form_for(@user) do |f| %>
+ 	<div class="field">
+ 		<%#= f.label :name,"name:"%>
+ 		<%#= f.text_field :name, class:"name" %>
+	</div>
+	<div class="field">
+		<%#= f.label :image,"picture" %>
+		<%#= f.attachment_field :image %>
+	</div>
+<%# end %>
+
+<!-- gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick" ←gem入れないと画像表示されないかも？-->

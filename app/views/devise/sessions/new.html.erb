@@ -1,37 +1,18 @@
-<div class="container-fluid bg-secondary py-4">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="text-center pb-5">
-        <h1 class="text-light">ログイン画面</h1>
-      </div>
-    </div>
+  <h2>Log in</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"email" %>
   </div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="row form-group py-2">
-    <%= f.label :email, "email:", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-5 form-control", placeholder:"メールアドレスを入力ください" %>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:"password" %>
   </div>
-
-  <div class="row form-group py-2">
-    <%= f.label :password, "password:", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
-    <%= f.password_field :password, autocomplete: "current-password", class:"col-5 form-control", placeholder:"パスワードを入力ください" %>
-  </div>
-
-  <!-- <div class="offset-4"> -->
-  <%# if devise_mapping.rememberable? %>
-    <!-- <div class="field"> -->
-      <%#= f.check_box :remember_me %>
-      <%#= f.label :remember_me %>
-    <!-- </div> -->
-  <%# end %>
-  <!-- </div> -->
-
-  <p class="offset-4">
-   アカウント作成がまだの方は
-   <%= render "devise/shared/links" %></p>
   <div class="actions">
-    <%= f.submit "confirm", class:"text-light btn btn-primary offset-4" %>
+    <%= f.submit "Log in", class:"btn btn-primary" %>
   </div>
-<% end %>
+  <% end %>
 
 
+
+<%= render "devise/shared/links" %>
