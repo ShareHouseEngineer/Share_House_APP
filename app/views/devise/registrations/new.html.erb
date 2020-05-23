@@ -3,6 +3,9 @@
      <div class="col-6">
        <div class="cover-text text-center pb-5">
          <h1 class="text-light">新規登録</h1>
+       </div>
+     </div>
+   </div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="row form-group py-2">
@@ -24,16 +27,14 @@
   </div>
 
   <div class="row form-group py-2">
-    <%= f.label :password_confirmation, "re password", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %><br />
+    <%= f.label :password_confirmation, "re password", class:"col-4 text-light text-right", style:"font-size:1.75rem;" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-5 form-control", placeholder:"確認のため、再度パスワードを入力ください" %>
   </div>
 
-  <div class="text-light">
-    <%= f.submit "confirm", class:"btn btn-primary offset-4" %>
+  <div class="offset-4">
+    <%= f.submit "confirm", class:"btn btn-primary text-light" %>
   </div>
 <% end %>
 <%#= render "devise/shared/links" %>
 </div>
-</div>
-</div>
-</div>
+
