@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 #namesperce  ディレの階層が変わって　　urlも変わる(URLは同じものがあってはいけないのでadmin/userで使い分けるときに使う)
 #scpoe　　ディレの階層が変わったことをPCに伝えてるだけ　　urlは変わらない
 
-  resources :photoes
+  resources :photos
   # resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

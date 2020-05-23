@@ -1,0 +1,16 @@
+<div class="container-fluid bg-secondary">
+  <div class="row justify-content-center py-4">
+    <% @photos.each do |photo| %>
+      <div class="card col-md-4 m-2" style="max-width: 25rem;">
+        <%= image_tag photo.image %>
+          <div class="card-body">
+            <h4 class="card-title"><%= photo.created_at.strftime('%Y/%m/%d') %></h4>
+            <label for="card-subtitle"><%= photo.user.name %></label>
+            <a href="content.html">
+              <div class="btn btn-primary">詳しく見る</div>
+            </a>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>
