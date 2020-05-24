@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
+  root 'homes#top'
   devise_for :users
    # devise_for :users, controllers: {
    # sessions: 'users/sessions',
    # registrations: 'users/registrations'
    # }
-# devise_for:uers　はresourcesと同じような機能
-# devise_for :users, controllers: はonlyと同じような機能
+# devise_for:uers　  はresourcesと同じような機能
+# devise_for :users, controllers:   はonlyと同じような機能
 # devise_forではpasswordとかの、ルーティングいらないコントローラーのルーティングも作られるので
 # ルーティングが必要なコントローラーだけを記述して指定する
 
