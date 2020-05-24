@@ -10,7 +10,11 @@ protected
     	photoes_path
 	end
 	def after_sign_out_path_for(resource)
+<<<<<<< HEAD
+		photoes_path
+=======
 		root_path
+>>>>>>> origin/master
 	end
 	def configure_permiited_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
