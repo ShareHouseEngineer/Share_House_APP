@@ -1,32 +1,12 @@
 <div class="container-fluid bg-secondary py-4">
   <div class="jumbotron">
-    <h1 class="display-3">2020/01/01</h1>
-    <p>
-      テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-    </p>
+    <h1 class="display-3"><%= @photos.first.created_at.strftime('%Y/%m/%d') %></h1>
   </div>
   <hr class="m-2 bg-white" />
   <div class="row justify-content-center py-2">
-    <img
-      src="./image/MgJOxYZBSOa0uAC-DmJdkQ.jpeg"
-      style="max-width: 18rem;"
-      class="p-2 col-md-3"
-    />
-    <img
-      src="./image/MgJOxYZBSOa0uAC-DmJdkQ.jpeg"
-      style="max-width: 18rem;"
-      class="p-2 col-md-3"
-    />
-    <img
-      src="./image/MgJOxYZBSOa0uAC-DmJdkQ.jpeg"
-      style="max-width: 18rem;"
-      class="p-2 col-md-3"
-    />
-    <img
-      src="./image/MgJOxYZBSOa0uAC-DmJdkQ.jpeg"
-      style="max-width: 18rem;"
-      class="p-2 col-md-3"
-    />
+    <% @photos.each do |photo| %>
+      <%= image_tag photo.image, style: "max-width: 18rem;", class: "p-2 col-md-3" %>
+    <% end %>
   </div>
 </div>
 </main>

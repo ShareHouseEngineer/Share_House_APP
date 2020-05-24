@@ -4,13 +4,13 @@ class PhotosController < ApplicationController
   def index
     @photos = []
     if Photo.all.present?
-      count = Photo.all.order(created_at: "ASC").first.label
+      count = Photo.all.order(created_at: "ASC").last.label
     else
       count = 0
     end
 
     count.times{|n|
-      @photos << Photo.where(label: (n+1)).order(created_at: "ASC").last
+      @photos << Photo.where(label: (n+1)).order(created_at: "ASC").first
     }
      
   end
@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_new)
-    @lastphoto = Photo.all.order(created_at: "ASC").first
+    @lastphoto = Photo.all.order(created_at: "ASC").last
 
     year = 0
     yday = 0
@@ -44,6 +44,10 @@ class PhotosController < ApplicationController
 
     @photo.save
     redirect_to photos_path
+  end
+
+  def show
+    @photos = Photo.where(label: params[:id]).order(created_at: "ASC")
   end
 
   private
