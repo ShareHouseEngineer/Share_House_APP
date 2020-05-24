@@ -1,0 +1,24 @@
+<div class="container-fluid bg-secondary py-4">
+	<div class="row justify-content-center">
+		<div class="col-6">
+			<div class="cover-text text-center pb-5">
+				<h1 class="text-light">写真登録</h1>
+			</div>
+		</div>
+	</div>
+	<%= form_with model: @photo, local: true do |f| %>
+		<div class="row form-group py-2">
+			<labal class="col-4 text-light text-right">
+				<h3>名前:</h3>
+			</labal>
+			<%= f.text_field :name, class: "col-5 form-control", placeholder: "お名前を入力ください" %>
+		</div>
+		<div class="row form-group py-2">
+			<labal class="col-4 text-light text-right">
+				<h3>写真:</h3>
+			</labal>
+			<%= f.file_field :image, class: "col-5 form-control" %>
+		</div>
+		<%= f.submit '送信', class: "btn btn-primary offset-4" %>
+	<% end %>
+</div>

@@ -24,7 +24,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container">
-          <%= link_to 'Share Pictures APP', photoes_path, class: 'navbar-brand' %>
+          <%= link_to 'Share Pictures APP', photos_path, class: 'navbar-brand' %>
           <button
             class="navbar-toggler"
             type="button"
@@ -49,11 +49,7 @@
                   <%= link_to '投稿する', new_photo_path, class:"nav-link btn btn-secondary m-2 sign_in" %>
               </li>
               <li class="nav-item">
-<<<<<<< HEAD
-                <%= link_to 'ログイン',new_user_session_path, class:'nav-link btn btn-secondary m-2 sign_in' %>
-=======
                 <%= link_to 'ログイン', new_user_session_path, class:'nav-link btn btn-secondary m-2 sign_in' %>
->>>>>>> origin/master
               </li>
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link btn btn-secondary m-2 logout' %>
