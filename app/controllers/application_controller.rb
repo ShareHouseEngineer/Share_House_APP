@@ -4,17 +4,14 @@ before_action :configure_permiited_parameters, if: :devise_controller?
 
 protected
     def after_sign_up_path_for(resource)
-        photoes_path
+        photos_path
     end
     def after_sign_in_path_for(resource)
-    	photoes_path
+    	photos_path
 	end
 	def after_sign_out_path_for(resource)
-<<<<<<< HEAD
-		photoes_path
-=======
 		root_path
->>>>>>> origin/master
+
 	end
 	def configure_permiited_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
