@@ -3,6 +3,7 @@
     <% @photos.each do |photo| %>
       <div class="card col-md-4 m-2" style="max-width: 25rem;">
         <%= image_tag photo.image, class:"card-img-top" %>
+        <%= image_tag photo.image, class:"card-img-top" %>
           <div class="card-body">
             <h4 class="card-title"><%= photo.created_at.strftime('%Y/%m/%d') %></h4>
             <label for="card-subtitle"><%= photo.user.name %></label><br>
