@@ -50,6 +50,18 @@ class PhotosController < ApplicationController
     @photos = Photo.where(label: params[:id]).order(created_at: "ASC")
   end
 
+  def edit
+  end
+
+  def create
+  end
+
+  def delete_page
+  end
+  
+  def destroy
+  end
+
   private
 
   def photo_new
