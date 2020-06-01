@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_new)
+    @photo = Photo.new(photo_params)
     @lastphoto = Photo.all.order(created_at: "ASC").last
 
     year = 0
@@ -51,20 +51,36 @@ class PhotosController < ApplicationController
   end
 
   def edit
+      @photo = Photo.find(params[:id])
   end
 
-  def create
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.update(photo_params)
+    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
+    render :show
   end
 
   def delete_page
+    session[:delete] = params[:id]
   end
   
   def destroy
+    @photo = Photo.find(params[:id])
+    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
+    @photo.destroy
+    session[:delete] = nil
+    if @photos.present?
+      render :show
+    else
+      redirect_to photos_path
+    end
+
   end
 
   private
 
-  def photo_new
+  def photo_params
     params.require(:photo).permit(:name, :image)
   end
 
