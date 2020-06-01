@@ -1,11 +1,7 @@
 <div class="container-fluid bg-secondary py-4">
   <p class="py-4 text-center text-light">本当に削除してもよろしいのですか？</p>
   <div class="row justify-content-center">
-    <a href="content.html" class="mx-4">
-      <button class="btn btn-primary">戻る</button>
-    </a>
-    <a href="index.html" class="mx-4">
-      <button class="btn btn-primary">削除</button>
-    </a>
+    <%= link_to '戻る', photos_path, class: 'btn btn-primary mr-5' %>
+    <%= link_to '削除', photo_path(session[:delete]), method: :delete, class: 'btn btn-primary' %>
   </div>
 </div>
