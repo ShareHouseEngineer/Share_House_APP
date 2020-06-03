@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create, :delete_page]
   
   def index
     @photos = []
@@ -43,11 +43,11 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
 
     @photo.save
-    redirect_to photos_path
+    redirect_to root_path
   end
 
   def show
-    @photos = Photo.where(label: params[:id]).order(created_at: "ASC")
+    @photos = Photo.where(label: params[:id]).order(created_at: "DESC")
   end
 
   def edit
@@ -73,7 +73,7 @@ class PhotosController < ApplicationController
     if @photos.present?
       render :show
     else
-      redirect_to photos_path
+      redirect_to root_path
     end
 
   end

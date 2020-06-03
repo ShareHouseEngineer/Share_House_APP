@@ -24,7 +24,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
         <div class="container">
-          <%= link_to 'Share Pictures APP', photos_path, class: 'navbar-brand' %>
+          <%= link_to 'Share Pictures APP', root_path, class: 'navbar-brand' %>
           <button
             class="navbar-toggler"
             type="button"
@@ -45,15 +45,18 @@
 
           <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
               <li class="nav-item">
                   <%= link_to '投稿する', new_photo_path, class:"nav-link btn btn-secondary m-2 sign_in" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'ログイン', new_user_session_path, class:'nav-link btn btn-secondary m-2 sign_in' %>
-              </li>
-              <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link btn btn-secondary m-2 logout' %>
               </li>
+              <% else %>
+              <li class="nav-item">
+                <%= link_to 'ログイン', new_user_session_path, class:'nav-link btn btn-secondary m-2 sign_in' %>
+              </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -65,15 +68,18 @@
   <footer class="bg-dark text-light py-5">
     <div class="container text-center">
       <ul class="nav justify-content-center">
+      <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to '投稿する', new_photo_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link" %>
         </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
+        </li>
+        <% end %>
       </ul>
       <p>
         <small

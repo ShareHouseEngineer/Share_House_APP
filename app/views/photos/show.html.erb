@@ -8,8 +8,10 @@
       <div>
         <%= image_tag photo.image, style: "max-width: 18rem;", class: "p-2 col-md-3" %>
         <div class="d-flex justify-content-end">
+        <% if user_signed_in? %>
           <%= link_to '編集', edit_photo_path(photo), class: 'btn btn-success mr-5' %>
           <%= link_to '削除', delete_page_photo_path(photo), method: :get, class: "btn btn-danger" %>
+        <% end %>
         </div>
       </div>
     <% end %>

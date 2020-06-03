@@ -15,10 +15,10 @@
      <%= f.label :password, "password:", class:"col-4 text-light text-right", style:"font-size: 1.75rem;" %>
     <%= f.password_field :password, autocomplete: "current-password", class:"col-5 form-control password", placeholder:"パスワードを入力ください" %>
   </div>
-  <p class="offset-4">
-    アカウント作成がまだの方は
-    <%= render "devise/shared/links" %>
-  </p>
+  <%# <p class="offset-4">
+    アカウント作成がまだの方は %>
+    <%#= render "devise/shared/links" %>
+  <%# </p> %>
   <div class="actions text-light">
     <%= f.submit "confirm", class:"btn btn-primary offset-4" %>
   </div>
