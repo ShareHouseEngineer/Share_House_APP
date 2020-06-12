@@ -1,12 +1,64 @@
-<div class="container-fluid bg-secondary py-4">
-	<div class="row justify-content-center">
-		<div class="col-6">
-			<div class="cover-text text-center pb-5">
-				<h1 class="text-light">写真登録</h1>
-			</div>
-		</div>
-	</div>
-	
-<%= render partial: 'form' %>
+<header class="index-header">
+  <div class="bg-img" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover; background-attachment: fixed;">
+    <div class="top-box">
+      <h1 class="top-text">Share House Pictures.</h1>
+      <form class="form-box" action="cgi-bin/formmail.cgi" method="post">
+        <div class="cp_iptxt">
+          <label class="ef">
+            <input type="name" placeholder="投稿者名">
+          </label>
+        </div>
+        <div class="fileUploder">
+          <input type="text" class="txt" readonly>
+          <button class="btn">参照</button>
+          <input type="file" class="uploader">
+        </div>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</header>
+<script>
+  $(function() {
+    fileUploader();
+  });
+  var fileUploader = function() {
+    //ラッパーのdiv
+    var target = $('.fileUploder');
 
-</div>
+    //イベント割り当て
+    target.each(function() {
+      //ダミーのテキストフィールド
+      var txt = $(this).find('.txt');
+      //ファイルアップロードボタン
+      var btn = $(this).find('.btn');
+      //input[type=file]の実体
+      var uploader = $(this).find('.uploader');
+
+      //実体が変更された時
+      uploader.bind('change', function() {
+        //テキストフィールドに値をいれる
+        txt.val($(this).val());
+      });
+
+      //ボタンのイベントは無効にしておく
+      btn.bind('click', function(event) {
+        //イベントキャンセル
+        event.preventDefault();
+        //一応モダンじゃないブラウザ用
+        return false;
+      });
+
+      //ホバー処理（上にかぶせているので反応しないため）
+      //ここはデザインの都合上いれている処理のため適宜変更を
+      //class切り替えでやったほうがいいです。
+      $(this).bind('mouseover', function() {
+        btn.css('background-position', '0 100%');
+      });
+      $(this).bind('mouseout', function() {
+        btn.css('background-position', '0 0');
+      });
+
+    });
+  }
+</script>

@@ -1,7 +1,24 @@
-<div class="container-fluid bg-secondary py-4">
-  <p class="py-4 text-center text-light">本当に削除してもよろしいのですか？</p>
-  <div class="row justify-content-center">
-    <%= link_to '戻る', root_path, class: 'btn btn-primary mr-5' %>
-    <%= link_to '削除', photo_path(session[:delete]), method: :delete, class: 'btn btn-primary' %>
-  </div>
-</div>
+  <header>
+    <div class="content-top" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover;">
+      <h1 class="content-text">yyyy/mm/ddのアルバム</h1>
+    </div>
+
+  </header>
+  <main class="content-main">
+    <div class="main-container">
+      <form>
+        <input type="checkbox" name="#" value="1" id="photo01">
+        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
+        <input type="checkbox" name="#" value="1" id="photo01">
+        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
+        <input type="checkbox" name="#" value="1" id="photo01">
+        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
+        <input type="checkbox" name="#" value="1" id="photo01">
+        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
+      </form>
+      <a href="#">
+        <p class="delete-btn">削除</p>
+      </a>
+
+
+  </main>
