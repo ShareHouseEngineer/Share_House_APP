@@ -1,19 +1,16 @@
-<div class="container-fluid bg-secondary py-4">
-  <div class="jumbotron">
-    <h1 class="display-3"><%= @photos.first.created_at.strftime('%Y/%m/%d') %></h1>
-  </div>
-  <hr class="w-100 bg-light" />
-  <div class="row row-0 justify-content-start m-4">
-    <% @photos.each do |photo| %>
-      <div>
-        <%= image_tag photo.image, style: "max-width: 18rem;", class: "p-2 col-md-3" %>
-        <div class="d-flex justify-content-end">
-        <% if user_signed_in? %>
-          <%= link_to '編集', edit_photo_path(photo), class: 'btn btn-success mr-5' %>
-          <%= link_to '削除', delete_page_photo_path(photo), method: :get, class: "btn btn-danger" %>
-        <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+<main class="content-main">
+  <div class="main-container">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <a href="delete_content.html">
+      <p class="delete-btn">削除画面</p>
+    </a>
+    </btn>
+    <a href="add_picture.html">
+      <p class="fixed-btn-blue">+</p>
+    </a>
+</main>
