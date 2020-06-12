@@ -1,3 +1,299 @@
-// Place all the styles related to the photoes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "utf-8";
+
+.bg-dark {
+  background-color: #252525;
+}
+
+.index-header {
+  height: 100vh;
+}
+
+.bg-img {
+  position: relative;
+  height: 100%;
+}
+
+.bg-img::before {
+  /* 透過した黒を重ねる */
+  background-color: rgba(255, 255, 255, 0.3);
+  /* どの範囲に重ねるかを指定 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ' ';
+}
+
+.top-box {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.top-text {
+  color: white;
+  font-size: 5.0vw;
+}
+
+/* 以下mainクラスのcss */
+.index-main {
+  width: 100%;
+  height: auto;
+  background-color: black;
+}
+
+p {
+  color: white;
+}
+
+/* 以下footerクラスのcss */
+.footer {
+  width: 100%;
+  height: auto;
+}
+
+.footer p {
+  margin: 15% 0 2%;
+  text-align: center;
+}
+
+@media screen and (max-width:639px) {
+
+  /*スマホ用のcssを記述*/
+  .article {
+    display: flex;
+    height: 30vh;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .article-img {
+    width: 100vw;
+    height: auto;
+  }
+
+  .text-box {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+  }
+
+  .text-box {
+    font-size: 2.5rem;
+    -webkit-text-stroke: 1px #000;
+  }
+
+  /* 以下content.htmlのcss */
+  .content-text {
+    margin: auto 0;
+    color: #fff;
+    font-size: 2.0rem;
+  }
+
+}
+
+@media only screen and (min-width:640px) and (max-width:1023px) {
+
+  /*tablet用のcssを記述*/
+  .article {
+    display: flex;
+    width: 100%;
+    height: 35vh;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+  }
+
+  .article:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .article:hover {
+    background-color: #000;
+    opacity: 0.6;
+  }
+
+  .article-img {
+    width: 60vw;
+    height: auto;
+  }
+
+  .text-box {
+    margin: 15% -8%;
+  }
+
+  .text-box p {
+    font-size: 3.5rem;
+    -webkit-text-stroke: 1px #000;
+  }
+
+  /* 以下content.htmlのcss */
+  .content-text {
+    margin: auto 0;
+    color: #fff;
+    font-size: 3.5rem;
+    -webkit-text-stroke: 1px #000;
+  }
+}
+
+@media screen and (min-width:1024px) {
+
+  /*pc用のcssを記述*/
+  .article {
+    display: flex;
+    width: 100%;
+    height: 45vh;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+  }
+
+  .article:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .article:hover {
+    background-color: #000;
+    opacity: 0.6;
+  }
+
+  .article-img {
+    width: 60vw;
+    height: auto;
+  }
+
+  .text-box {
+    margin: 15% -10%;
+  }
+
+  .text-box p {
+    font-size: 4.5rem;
+  }
+
+  /* 以下content.htmlのcss */
+  .content-text {
+    margin: auto 0;
+    color: #fff;
+    font-size: 4.5rem;
+    -webkit-text-stroke: 1px #000;
+  }
+}
+
+/* 以下content.html用css */
+.content-top {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+}
+
+.content-main {
+  position: relative;
+}
+
+.main-container {
+  width: 90%;
+  height: auto;
+  background-color: #252525;
+  margin: 10px auto;
+}
+
+.content-img {
+  width: 150px;
+  height: 150px;
+}
+
+.fixed-btn-blue {
+  background-color: #109DFA;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 70px;
+  font-size: 3.5rem;
+}
+
+/* 以下login.htmlのcss */
+.form-box {
+  margin-top: 100px;
+}
+
+.form-box input {
+  text-align: end;
+}
+
+.cp_iptxt {
+  position: relative;
+  width: 80%;
+  margin: 30px auto;
+}
+
+.cp_iptxt input {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  height: 4vw;
+  padding: 0.3em;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  color: #aaaaaa;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+}
+
+.ef input:focus {
+  border: 1px solid #da3c41;
+  outline: none;
+  box-shadow: 0 0 5px 1px rgba(218, 60, 65, .5);
+}
+
+/* 以下add_pictureのcss */
+.fileUploder {
+  position: relative;
+  /*↓幅はデザイン依存。場合によっては、指定しなくていい*/
+  width: 315px;
+  /*↓高さ指定しないとIE7で領域がひろがる…？*/
+  height: 31px;
+  /*↓はみ出した分隠す。IE対策*/
+  overflow: hidden;
+}
+
+.fileUploder .uploader {
+  position: absolute;
+  top: 0;
+  /*↓leftからrightに。ボタンが右にあるので、rightにしないとだめ。IE対策。*/
+  right: 0;
+  /*↓念のため*/
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  /*↓ここでフォームアイテムの大きさを調整。IE対策*/
+  font-size: 315px;
+  opacity: 0;
+  /*↓IE6,7対策*/
+  filter: alpha(opacity=0);
+  /*↓IE8対策*/
+  -ms-filter: "alpha(opacity=0)";
+}
+
+/* delete_contentのcss */
+.delete-btn {
+  margin: 50px auto;
+  background-color: #F41F69;
+  width: 200px;
+  height: 60px;
+  border-radius: 25px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 1.5rem;
+
+}

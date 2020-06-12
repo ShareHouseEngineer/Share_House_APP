@@ -1,109 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    />
-     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title>画像共有サービス</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-        <div class="container">
-          <%= link_to 'Share Pictures APP', root_path, class: 'navbar-brand' %>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbar-content"
-            aria-controls="navbar-content"
-            aria-expanded="false"
-            aria-label="=Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="text-light">ここにログインしてるユーザー名表示する→
-          <% if user_signed_in? %>
-           <%= current_user.name %>
-          <% end %>
-           </div>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <title>シェアハウス内画像共有アプリ</title>
+</head>
 
-          <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                  <%= link_to '投稿する', new_photo_path, class:"nav-link btn btn-secondary m-2 sign_in" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link btn btn-secondary m-2 logout' %>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                <%= link_to 'ログイン', new_user_session_path, class:'nav-link btn btn-secondary m-2 sign_in' %>
-              </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<body class="bg-dark">
+  <header class="index-header">
+    <div class="bg-img" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover; background-attachment: fixed;">
+      <div class="top-box">
+        <h1 class="top-text">Share House Pictures.</h1>
+      </div>
+    </div>
   </header>
 
-  <main><%= yield %></main>
+  <%= yield %>
 
-  <footer class="bg-dark text-light py-5">
-    <div class="container text-center">
-      <ul class="nav justify-content-center">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to '投稿する', new_photo_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link" %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to 'ログイン', new_user_session_path, class:"nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-      <p>
-        <small
-          >Copyright &copy;2019 Share Pictures APP, All Rights
-          Reserved.</small
-        >
-      </p>
-    </div>
-</footer>
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-  crossorigin="anonymous"
-></script>
-<script
-  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-  crossorigin="anonymous"
-></script>
+  <footer class="footer">
+    <p>テキストテキスト</p>
+  </footer>
 
 </body>
+
 </html>
