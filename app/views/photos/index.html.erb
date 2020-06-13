@@ -8,18 +8,14 @@
 
 
 <main class="index-main">
-  <a href="#" class="article">
-    <div class="article-img" style="background: url(/image/test1.jpeg)no-repeat center; background-size: cover;">
-    </div>
-    <div class="text-box">
-      <p class="days">yyyy/mm/dd</p>
-    </div>
-  </a>
-  <a href="#" class="article">
-    <div class="article-img" style="background: url(/image/test1.jpeg)no-repeat center; background-size: cover;">
-    </div>
-    <div class="text-box">
-      <p class="days">yyyy/mm/dd</p>
-    </div>
-  </a>
+  <% @photos.each do |photo| %>
+    <a href= <%= photo_path(photo.label) %> class="article">
+      <div class="article-img" style="background: background-size: cover;">
+        <%= image_tag  photo.image, background: "no-repeat center" %>
+      </div>
+      <div class="text-box">
+        <p class="days"><%= photo.created_at.strftime("%Y/%m/%d") %></p>
+      </div>
+    </a>
+  <% end %>
 </main>

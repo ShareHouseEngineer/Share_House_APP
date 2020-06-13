@@ -1,21 +1,17 @@
 <header>
   <div class="content-top" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover;">
-    <h1 class="content-text">yyyy/mm/ddのアルバム</h1>
+    <h1 class="content-text"><%= @time %>のアルバム</h1>
   </div>
 </header>
 
 <main class="content-main">
   <div class="main-container">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
-    <img class="content-img" src="/image/test1.jpeg" alt="">
+    <% @photos.each do |photo|%>
+      <%= image_tag  photo.image, class: "content-img" %>
+    <% end %>
     <a href="delete_content.html">
       <p class="delete-btn">削除画面</p>
     </a>
-    </btn>
     <a href="add_picture.html">
       <p class="fixed-btn-blue">+</p>
     </a>

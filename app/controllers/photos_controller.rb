@@ -48,6 +48,7 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.where(label: params[:id]).order(created_at: "DESC")
+    @time = Photo.find_by(label: params[:id]).created_at.strftime("%Y/%m/%d")
   end
 
   def edit

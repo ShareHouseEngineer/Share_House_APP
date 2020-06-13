@@ -1,28 +1,21 @@
-<div class="container-fluid bg-secondary py-4">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="cover-text text-center pb-5">
-        <h1 class="text-light">ログイン画面</h1>
+  <header class="index-header">
+    <div class="bg-img" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover; background-attachment: fixed;">
+      <div class="top-box">
+        <h1 class="top-text">Share House Pictures.</h1>
+        <form class="form-box" action="cgi-bin/formmail.cgi" method="post">
+          <div class="cp_iptxt">
+            <label class="ef">
+            <input type="email" placeholder="メールアドレス">
+            </label>
+          </div>
+          <div class="cp_iptxt">
+            <label class="ef">
+            <input type="password" placeholder="パスワード">
+            </label>
+          </div>
+          <input type="submit">
+        </form>
       </div>
     </div>
-  </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="row form-group py-2">
-    <%= f.label :email, "e-mail:", class:"col-4 text-light text-right", style:"font-size: 1.75rem;" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-5 form-control email", placeholder:"メールアドレスを入力ください" %>
-  </div>
-  <div class="row form-group py-2">
-     <%= f.label :password, "password:", class:"col-4 text-light text-right", style:"font-size: 1.75rem;" %>
-    <%= f.password_field :password, autocomplete: "current-password", class:"col-5 form-control password", placeholder:"パスワードを入力ください" %>
-  </div>
-  <%# <p class="offset-4">
-    アカウント作成がまだの方は %>
-    <%#= render "devise/shared/links" %>
-  <%# </p> %>
-  <div class="actions text-light">
-    <%= f.submit "confirm", class:"btn btn-primary offset-4" %>
-  </div>
-  <% end %>
-</div>
-
+  </header>
 
