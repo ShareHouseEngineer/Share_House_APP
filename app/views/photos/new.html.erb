@@ -2,6 +2,13 @@
   <div class="bg-img" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover; background-attachment: fixed;">
     <div class="top-box">
       <h1 class="top-text">Share House Pictures.</h1>
+        <%= form_with model: @photo, local: true do |f| %>
+          <%= f.text_area :content, placeholder: "投稿者名" %><br>
+          <%= f.file_field :image %><br>
+          <%= f.submit '写真保存'%>
+        <% end %>
+
+      <!--　一応コード保存
       <form class="form-box" action="cgi-bin/formmail.cgi" method="post">
         <div class="cp_iptxt">
           <label class="ef">
@@ -15,6 +22,8 @@
         </div>
         <input type="submit">
       </form>
+      -->
+
     </div>
   </div>
 </header>

@@ -52,14 +52,9 @@ class PhotosController < ApplicationController
   end
 
   def edit
-      @photo = Photo.find(params[:id])
   end
 
   def update
-    @photo = Photo.find(params[:id])
-    @photo.update(photo_params)
-    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
-    render :show
   end
 
   def delete_page
