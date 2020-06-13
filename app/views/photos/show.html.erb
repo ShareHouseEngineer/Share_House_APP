@@ -9,7 +9,7 @@
     <% @photos.each do |photo|%>
       <%= image_tag  photo.image, class: "content-img" %>
     <% end %>
-    <a href="delete_content.html">
+    <a href= <%= delete_page_photo_path(@photos.first.label) %> >
       <p class="delete-btn">削除画面</p>
     </a>
     <a href="add_picture.html">

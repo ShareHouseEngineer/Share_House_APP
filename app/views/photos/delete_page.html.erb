@@ -1,24 +1,19 @@
   <header>
     <div class="content-top" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover;">
-      <h1 class="content-text">yyyy/mm/ddのアルバム</h1>
+      <h1 class="content-text"><%= @time %>アルバム</h1>
     </div>
 
   </header>
   <main class="content-main">
     <div class="main-container">
       <form>
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
+        <% @photos.each do |photo|%>
+          <input type="checkbox" name=<%="photo#{photo.id}" %> value= <%= photo.id %> id= <%="photo#{photo.id}" %> >
+          <%= image_tag  photo.image, id: "photo#{photo.id}", class: "content-img" %>
+        <% end %>
       </form>
-      <a href="#">
+
+      <a href= <%= photo_path(@photos.first.label) %> data-method="delete">
         <p class="delete-btn">削除</p>
       </a>
-
-
   </main>

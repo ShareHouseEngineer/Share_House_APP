@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
   <title>シェアハウス内画像共有アプリ</title>
 </head>
 
@@ -14,7 +16,11 @@
   <%= yield %>
 
   <footer class="footer">
-    <p>テキストテキスト</p>
+    <p>
+      <%= link_to  "ログいん", new_user_registration_path %>
+      <%= link_to  "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to  "写真投稿", new_photo_path %>
+    </p>
   </footer>
 
 </body>

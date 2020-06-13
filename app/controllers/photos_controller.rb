@@ -63,20 +63,12 @@ class PhotosController < ApplicationController
   end
 
   def delete_page
-    session[:delete] = params[:id]
+    @photos = Photo.where(label: params[:id]).order(created_at: "DESC")
+    @time = Photo.find_by(label: params[:id]).created_at.strftime("%Y/%m/%d")
   end
   
   def destroy
-    @photo = Photo.find(params[:id])
-    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
-    @photo.destroy
-    session[:delete] = nil
-    if @photos.present?
-      render :show
-    else
-      redirect_to root_path
-    end
-
+    redirect_to root_path
   end
 
   private
