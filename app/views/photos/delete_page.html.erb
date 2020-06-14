@@ -1,24 +1,21 @@
   <header>
     <div class="content-top" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover;">
-      <h1 class="content-text">yyyy/mm/ddのアルバム</h1>
-    </div>
-
+      <h1 class="content-text"><%= @time %>アルバム</h1>
+    </div>  
   </header>
+
   <main class="content-main">
     <div class="main-container">
-      <form>
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-        <input type="checkbox" name="#" value="1" id="photo01">
-        <img id="photo01" class="content-img" src="/image/test1.jpeg" alt="">
-      </form>
-      <a href="#">
-        <p class="delete-btn">削除</p>
-      </a>
-
-
+      <%= form_with url: photo_path(@photos.first.label), method: :delete, local: true do |f| %>
+        <div>
+          <% @photos.each do |photo| %>
+            <input type="checkbox" name="items[][photo]" value=<%=photo.id%> id=<%=photo.id%> >
+            <%= image_tag photo.image, class: "content-img" %>
+          <% end %>
+        </div>
+        <div>
+          <%= f.submit '削除', class: 'delete-btn'%>
+        </div>
+      <% end %>
+    </div>
   </main>

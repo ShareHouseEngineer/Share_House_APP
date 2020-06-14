@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
     count.times{|n|
       @photos << Photo.where(label: (n+1)).order(created_at: "ASC").first
     }
-     
+    
   end
   
   def new
@@ -48,34 +48,26 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.where(label: params[:id]).order(created_at: "DESC")
+    @time = Photo.find_by(label: params[:id]).created_at.strftime("%Y/%m/%d")
   end
 
   def edit
-      @photo = Photo.find(params[:id])
   end
 
   def update
-    @photo = Photo.find(params[:id])
-    @photo.update(photo_params)
-    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
-    render :show
   end
 
   def delete_page
-    session[:delete] = params[:id]
+    @photos = Photo.where(label: params[:id]).order(created_at: "DESC")
+    @time = Photo.find_by(label: params[:id]).created_at.strftime("%Y/%m/%d")
   end
   
   def destroy
-    @photo = Photo.find(params[:id])
-    @photos = Photo.where(label: @photo.label).order(created_at: "ASC")
-    @photo.destroy
-    session[:delete] = nil
-    if @photos.present?
-      render :show
-    else
-      redirect_to root_path
+    params[:items].each do |photo|
+      a = Photo.find(photo["photo"])
+      a.destroy
     end
-
+    redirect_to root_path
   end
 
   private
