@@ -1,19 +1,21 @@
   <header>
     <div class="content-top" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover;">
       <h1 class="content-text"><%= @time %>アルバム</h1>
-    </div>
-
+    </div>  
   </header>
+
   <main class="content-main">
     <div class="main-container">
-      <form>
-        <% @photos.each do |photo|%>
-          <input type="checkbox" name=<%="photo#{photo.id}" %> value= <%= photo.id %> id= <%="photo#{photo.id}" %> >
-          <%= image_tag  photo.image, id: "photo#{photo.id}", class: "content-img" %>
-        <% end %>
-      </form>
-
-      <a href= <%= photo_path(@photos.first.label) %> data-method="delete">
-        <p class="delete-btn">削除</p>
-      </a>
+      <%= form_with url: photo_path(@photos.first.label), method: :delete, local: true do |f| %>
+        <div>
+          <% @photos.each do |photo| %>
+            <input type="checkbox" name="items[][photo]" value=<%=photo.id%> id=<%=photo.id%> >
+            <%= image_tag photo.image, class: "content-img" %>
+          <% end %>
+        </div>
+        <div>
+          <%= f.submit '削除', class: 'delete-btn'%>
+        </div>
+      <% end %>
+    </div>
   </main>

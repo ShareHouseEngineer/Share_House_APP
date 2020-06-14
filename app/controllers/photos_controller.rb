@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
     count.times{|n|
       @photos << Photo.where(label: (n+1)).order(created_at: "ASC").first
     }
-     
+    
   end
   
   def new
@@ -63,6 +63,10 @@ class PhotosController < ApplicationController
   end
   
   def destroy
+    params[:items].each do |photo|
+      a = Photo.find(photo["photo"])
+      a.destroy
+    end
     redirect_to root_path
   end
 

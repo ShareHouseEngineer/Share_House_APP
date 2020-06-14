@@ -2,6 +2,21 @@
     <div class="bg-img" style="background: url(/image/backimg.jpg)no-repeat center; background-size: cover; background-attachment: fixed;">
       <div class="top-box">
         <h1 class="top-text">Share House Pictures.</h1>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="cp_iptxt">
+              <%= f.label :email, class:"ef" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-5 form-control email", placeholder:"メールアドレスを入力ください" %>
+            </div>
+            <div class="cp_iptxt">
+              <%= f.label :password, class:"ef" %>
+              <%= f.password_field :password, autocomplete: "current-password", class:"col-5 form-control password", placeholder:"パスワードを入力ください" %>
+            </div>
+            <div>
+              <%= f.submit "ログイン" %>
+            </div>
+          <% end %>
+
+        <!--
         <form class="form-box" action="cgi-bin/formmail.cgi" method="post">
           <div class="cp_iptxt">
             <label class="ef">
@@ -14,7 +29,8 @@
             </label>
           </div>
           <input type="submit">
-        </form>
+        </form> -->
+        
       </div>
     </div>
   </header>
