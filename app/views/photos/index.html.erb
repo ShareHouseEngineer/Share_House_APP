@@ -6,11 +6,10 @@
   </div>
 </header>
 
-
 <main class="index-main">
   <% @photos.each do |photo| %>
     <a href= <%= photo_path(photo.label) %> class="article">
-      <div class="article-img" style="background: background-size: cover;">
+      <div class="article-img" style="background: no-repeat center background-size: cover;">
         <%= image_tag  photo.image, background: "no-repeat center" %>
       </div>
       <div class="text-box">
@@ -18,4 +17,7 @@
       </div>
     </a>
   <% end %>
+    <a href= <%= new_photo_path %>>
+    <p class="fixed-btn-blue">+</p>
+  </a>
 </main>

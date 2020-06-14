@@ -4,11 +4,9 @@
         <h1 class="top-text">Share House Pictures.</h1>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="cp_iptxt">
-              <%= f.label :email, class:"ef" %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-5 form-control email", placeholder:"メールアドレスを入力ください" %>
             </div>
             <div class="cp_iptxt">
-              <%= f.label :password, class:"ef" %>
               <%= f.password_field :password, autocomplete: "current-password", class:"col-5 form-control password", placeholder:"パスワードを入力ください" %>
             </div>
             <div>
